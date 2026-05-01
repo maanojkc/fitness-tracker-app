@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>🔥 Fitness Dashboard</h1>
+
+<div class="cards">
+    <div class="card">Weight: {{ current_weight }} kg</div>
+    <div class="card">Change: {{ change }} kg</div>
+    <div class="card">Progress: {{ progress }}%</div>
+</div>
+
+<form method="POST">
+    <input name="weight" placeholder="Weight (kg)" required>
+    <input name="bodyfat" placeholder="Body Fat %" required>
+    <input name="calories" placeholder="Calories" required>
+
+    <select name="workout">
+        <option>Push</option>
+        <option>Pull</option>
+        <option>Legs</option>
+        <option>Rest</option>
+    </select>
+
+    <button>Add Entry</button>
+</form>
+
+<canvas id="weightChart"></canvas>
+<canvas id="fatChart"></canvas>
+<canvas id="calChart"></canvas>
+
+<div class="predictions">
+    <p>After 3 months: {{ exp3 }} kg</p>
+    <p>After 5 months: {{ exp5 }} kg</p>
+</div>
+
+</div>
+
+<script>
+const labels = {{ dates|safe }};
+const weights = {{ weights|safe }};
+const fats = {{ bodyfats|safe }};
+const cals = {{ calories|safe }};
+
+new Chart(document.getElementById("weightChart"), {
+    type: "line",
+    data: { labels: labels, datasets: [{ label: "Weight", data: weights }] }
+});
+
+new Chart(document.getElementById("fatChart"), {
+    type: "line",
+    data: { labels: labels, datasets: [{ label: "Body Fat", data: fats }] }
+});
+
+new Chart(document.getElementById("calChart"), {
+    type: "line",
+    data: { labels: labels, datasets: [{ label: "Calories", data: cals }] }
+});
+</script>
+
+</body>
+</html>
