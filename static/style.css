@@ -1,0 +1,41 @@
+body {
+    background: #0b1a2b;
+    color: white;
+    font-family: Arial;
+}
+
+.container {
+    width: 500px;
+    margin: auto;
+    margin-top: 40px;
+}
+
+.cards {
+    display: flex;
+    gap: 10px;
+}
+
+.card {
+    background: #1e2d44;
+    padding: 10px;
+    border-radius: 10px;
+    flex: 1;
+    text-align: center;
+}
+
+input, select, button {
+    width: 100%;
+    margin-top: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+}
+
+button {
+    background: orange;
+    font-weight: bold;
+}
+
+canvas {
+    margin-top: 20px;
+}
