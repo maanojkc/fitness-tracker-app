@@ -1,26 +1,21 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" href="/static/style.css">
+    <title>Register</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
+
 <body>
+<div class="container">
+    <h1>Register</h1>
 
-<div class="card">
-<h2>Register</h2>
+    <form method="POST">
+        <input type="text" name="username" placeholder="Username" required>
+        <input type="password" name="password" placeholder="Password" required>
+        <button type="submit">Register</button>
+    </form>
 
-<form method="POST">
-<input name="name" placeholder="Username" required>
-<input type="password" name="password" required>
-
-<select name="goal">
-<option value="bulk">Bulk</option>
-<option value="cut">Cut</option>
-</select>
-
-<button>Register</button>
-</form>
-
+    <p>Already have an account? <a href="/login">Login</a></p>
 </div>
-
 </body>
 </html>
